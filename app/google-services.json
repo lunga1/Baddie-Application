@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "176707693620",
+    "firebase_url": "https://buddielam-fa5ea-default-rtdb.firebaseio.com",
+    "project_id": "buddielam-fa5ea",
+    "storage_bucket": "buddielam-fa5ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176707693620:android:30d3ce9666539b9197ae61",
+        "android_client_info": {
+          "package_name": "lunga.com.buddielam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176707693620-pmujj7ahrrmt5f7qcs8s7uscgv08vb1e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvKVsP_no-kig8LkbYCq7Fy7SADu_U_wE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176707693620-pmujj7ahrrmt5f7qcs8s7uscgv08vb1e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

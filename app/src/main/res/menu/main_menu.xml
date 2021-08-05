@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/m_name"
+                android:icon="@drawable/profile_pic"
+                app:showAsAction="ifRoom|withText"
+                android:title="Name" />
+            <item
+                android:id="@+id/m_email"
+                android:icon="@drawable/email_icon"
+                app:showAsAction="ifRoom|withText"
+                android:title="Email" />
+            <item
+                android:id="@+id/m_phone"
+                android:icon="@drawable/phone_icon"
+                app:showAsAction="ifRoom|withText"
+                android:title="Phone Number" />
+
+            <item
+                android:id="@+id/m_set_reminder"
+                android:icon="@drawable/reminder_icon"
+                app:showAsAction="ifRoom|withText"
+                android:title="Set Reminder" />
+
+            <item
+                android:id="@+id/m_request_appointment"
+                android:icon="@drawable/request_appointment"
+                app:showAsAction="ifRoom|withText"
+                android:title="Request Appointment" />
+
+            <item
+                android:id="@+id/m_contact_doctor"
+                android:icon="@drawable/phone_icon"
+                app:showAsAction="ifRoom|withText"
+                android:title="Contact Doctor" />
+        </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/m_edit"
+            android:icon="@drawable/edit_pen"
+            app:showAsAction="ifRoom|withText"
+            android:title="Edit Profile" />
+        <item
+            android:id="@+id/m_logout"
+            android:icon="@drawable/back_icon"
+            app:showAsAction="ifRoom|withText"
+            android:title="Logout" />
+    </group>
+
+</menu>
