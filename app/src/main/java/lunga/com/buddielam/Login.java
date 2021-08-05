@@ -29,7 +29,6 @@ public class Login extends AppCompatActivity {
         EditText email = findViewById(R.id.email);
         EditText password = findViewById(R.id.password);
         Button login_btn = findViewById(R.id.login);
-        TextView forgot_password = findViewById(R.id.forgot_password);
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
@@ -64,7 +63,7 @@ public class Login extends AppCompatActivity {
                             }
                         }
                     });
-                    //login code ends here
+                    //login code ends here...
                 }
             }
         });
@@ -72,7 +71,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void goToRegister(View view) {
-        //go to the register activity
+        //go to the register activity...
         startActivity(new Intent(this, Register.class));
     }
 
