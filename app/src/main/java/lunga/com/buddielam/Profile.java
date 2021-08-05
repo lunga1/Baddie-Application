@@ -103,7 +103,6 @@ public class Profile extends AppCompatActivity {
                         String phone = userProfile.phone;
                         String age = userProfile.age;
 
-
                        //set mains
                         clocation.setText(location);
                         cmedication.setText(medication);
@@ -146,7 +145,6 @@ public class Profile extends AppCompatActivity {
                            }
                        });
                        //NAVIGATION ITEM CODE GOES ENDS HERE...
-
                    }
                 }
 
