@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/profile_pic.xml" value="0.2324561403508772" />
         <entry key="app/src/main/res/drawable/request_appointment.xml" value="0.22894736842105262" />
+        <entry key="app/src/main/res/layout-normal/activity_main.xml" value="0.12746358183376177" />
         <entry key="app/src/main/res/layout-v28/activity_reset_password.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
@@ -12,6 +13,7 @@
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.21535087719298246" />
         <entry key="app/src/main/res/layout/header.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.12746358183376177" />
         <entry key="app/src/main/res/menu/header.xml" value="0.20982905982905983" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.25" />
       </map>

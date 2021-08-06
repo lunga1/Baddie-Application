@@ -24,7 +24,7 @@
                 android:id="@+id/m_set_reminder"
                 android:icon="@drawable/reminder_icon"
                 app:showAsAction="ifRoom|withText"
-                android:title="Set Reminder" />
+                android:title="Set Appointment Reminder" />
 
             <item
                 android:id="@+id/m_request_appointment"

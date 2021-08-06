@@ -21,7 +21,20 @@
             android:layout_marginEnd="30dp"
             android:layout_marginTop="45dp"
             android:paddingBottom="10dp"
-
+            android:background="@drawable/rounded_edittext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bud_logo" />
+        <ProgressBar
+            android:id="@+id/login_progress"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/todo"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="45dp"
+            android:paddingBottom="10dp"
             android:background="@drawable/rounded_edittext"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +105,8 @@
             android:textColor="@color/custom_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintTop_toBottomOf="@+id/password"
+             />
 
         <CheckBox
             android:id="@+id/remember_me"

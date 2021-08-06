@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,7 +54,6 @@ public class EditProfile extends AppCompatActivity {
         back_home = findViewById(R.id.e_back_to_home);
         dbReference = FirebaseDatabase.getInstance().getReference().child("BaddieUsers");
 
-        //TODO: USE HASHMAP TO RED THE DATA BEFORE UPDATING... (on the vid: 1:42)
         dbReference.child(replaceDotWithComa(email_id)).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

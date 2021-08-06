@@ -8,7 +8,8 @@
     android:id="@+id/drawer_layout"
     android:background="@color/baddie"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    >
+    <!-- tools:openDrawer="start"-->
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -220,6 +221,15 @@
                             android:textStyle="italic" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:id="@+id/set_med_reminder"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/bell"
+                    android:layout_marginStart="10dp"
+                    android:contextClickable="true"
+                    />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

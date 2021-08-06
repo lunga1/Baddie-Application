@@ -16,9 +16,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.provider.CalendarContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +35,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Objects;
 
 public class Profile extends AppCompatActivity {
@@ -46,19 +51,15 @@ public class Profile extends AppCompatActivity {
     NavigationView navigationView;
     Toolbar toolbar;
 
+    //get current date
+    Calendar calendar;
+    SimpleDateFormat simpleDateFormat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         overridePendingTransition(R.anim.from_botton, R.anim.from_top);
-
-        // Set the alarm to start at approximately 2:00 p.m.
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.MINUTE, 45);
-        //TODO: FIX THE TIME REMINDER CREATOR
-
-        //------
 
          drawerLayout = findViewById(R.id.drawer_layout);
          navigationView = findViewById(R.id.nav_view);
@@ -79,6 +80,27 @@ public class Profile extends AppCompatActivity {
         TextView clocation = findViewById(R.id.location);
         TextView cmedication = findViewById(R.id.medication);
         TextView cnextAppointment = findViewById(R.id.nextAppointment);
+
+        //reminder button action
+        ImageView imgView  = findViewById(R.id.set_med_reminder);
+
+        imgView.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ShortAlarm")
+            @Override
+            public void onClick(View v) {
+                //TODO: SET REMINDER GOES HERE...
+                //gets
+                //Intent intent = new Intent(Profile.this, backgroundProcess.class);
+                //intent.setAction("BackgroundProcess");
+                //set repeated task...
+                //PendingIntent pendingIntent = PendingIntent.getBroadcast(Profile.this, 0, intent,0);
+                //AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                //alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, 0, 0, pendingIntent);
+
+            }
+        });
+        //ends here
+
 
         //read code start
 
@@ -113,7 +135,7 @@ public class Profile extends AppCompatActivity {
                        menu_phone.setTitle(phone);
                        menu_email.setTitle(email);
 
-                       //NAVIGATION ITEM CODE GOES HERE...
+                       //NAVIGATION ITEMS CODE GOES HERE...
                        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
                            @Override
                            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -124,20 +146,40 @@ public class Profile extends AppCompatActivity {
                                    finish();
                                }
                                if (item.getItemId() == R.id.m_set_reminder){
-                                   Toast.makeText(Profile.this, "Alarm set pressed.", Toast.LENGTH_SHORT).show();
+                                   //TODO: set alarm code here
+                                   Intent intent = new Intent(Intent.ACTION_INSERT);
+                                   intent.setData(CalendarContract.Events.CONTENT_URI);
+                                   intent.putExtra(CalendarContract.Events.TITLE, "Set Appointment Title...");
+                                   intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Set Appointment location...");
+                                   intent.putExtra(CalendarContract.Events.DESCRIPTION, "set Appointment Description...");
+                                   intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+                                   //intent.putExtra(Intent.EXTRA_EMAIL, "testdoctor@hotmail.com"); //<extra email invitation/s
+
+                                   startActivity(intent); //<- start thr calender intent...
+
                                }
                                if (item.getItemId() == R.id.m_contact_doctor){
-                                   //TODO: CALL CODE GOES HERE...
                                    Toast.makeText(Profile.this, "Calling Doctor...", Toast.LENGTH_SHORT).show();
                                    Intent intent = new Intent(Intent.ACTION_CALL);
-                                   intent.setData(Uri.parse("tel:" + "0783910030"));
+                                   intent.setData(Uri.parse("tel:" + "0000000000")); //<- not the actual doctors number but mine...
                                    startActivity(intent);
-
                                }
                                if (item.getItemId() == R.id.m_edit){
                                    Intent edit_intent = new Intent(Profile.this, EditProfile.class);
                                    edit_intent.putExtra("user_email", email);
                                    startActivity(edit_intent);
+                               }
+                               if (item.getItemId() == R.id.m_request_appointment){
+                                   //todo: request the next appointment (maybe via email)...
+                                   String recipientList = "doctorTest@gmail.com";
+                                   String [] recipients = recipientList.split(","); //<if theres more than one...
+
+                                   Intent intent = new Intent(Intent.ACTION_SEND);
+                                   intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+                                   intent.putExtra(Intent.EXTRA_SUBJECT, "NEW APPOINTMENT REQUEST");
+                                   intent.putExtra(Intent.EXTRA_TEXT, "Dear Doc, \n\nI would like to make an appointment on the following date... \n\nKind Regards\nClient Signature");
+                                   intent.setType("message/rfc822");
+                                   startActivity(Intent.createChooser(intent, "Choose an email client"));
                                }
 
                                drawerLayout.closeDrawer(GravityCompat.START);
