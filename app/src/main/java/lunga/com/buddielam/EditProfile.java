@@ -120,6 +120,7 @@ public class EditProfile extends AppCompatActivity {
                     @Override
                     public void onSuccess(Object o) {
                         Toast.makeText(EditProfile.this  , "Successfully updated user information.", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(EditProfile.this, Profile.class));
                     }
                 });
             }

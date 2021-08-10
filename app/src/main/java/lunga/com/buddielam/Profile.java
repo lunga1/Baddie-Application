@@ -9,10 +9,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -80,27 +84,35 @@ public class Profile extends AppCompatActivity {
         TextView clocation = findViewById(R.id.location);
         TextView cmedication = findViewById(R.id.medication);
         TextView cnextAppointment = findViewById(R.id.nextAppointment);
+        TextView welcome_title = findViewById(R.id.welcome);
 
         //reminder button action
-        ImageView imgView  = findViewById(R.id.set_med_reminder);
+        TextView set_reminder  = findViewById(R.id.set_med_reminder);
 
-        imgView.setOnClickListener(new View.OnClickListener() {
+
+        //alarm handler code goes here
+        AalarmHandler alarmManager = new AalarmHandler(this);
+
+        set_reminder.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ShortAlarm")
             @Override
             public void onClick(View v) {
                 //TODO: SET REMINDER GOES HERE...
-                //gets
-                //Intent intent = new Intent(Profile.this, backgroundProcess.class);
-                //intent.setAction("BackgroundProcess");
-                //set repeated task...
-                //PendingIntent pendingIntent = PendingIntent.getBroadcast(Profile.this, 0, intent,0);
-                //AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                //alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, 0, 0, pendingIntent);
+
+                Intent intent = new Intent(Intent.ACTION_INSERT);
+                intent.setData(CalendarContract.Events.CONTENT_URI);
+                intent.putExtra(CalendarContract.Events.TITLE, "Medication Reminder");
+                intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Home");
+                intent.putExtra(CalendarContract.Events.DESCRIPTION, "Take your medication...");
+                intent.putExtra(CalendarContract.Events.ALL_DAY, false);
+                intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, 15);
+                intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, 30);
+                
+                startActivity(intent);
 
             }
         });
         //ends here
-
 
         //read code start
 
@@ -129,6 +141,7 @@ public class Profile extends AppCompatActivity {
                         clocation.setText(location);
                         cmedication.setText(medication);
                         cnextAppointment.setText(nextAppointment);
+                        welcome_title.append(" " + fullname);
 
                         //set menu
                        menu_name.setTitle(fullname);
@@ -161,7 +174,7 @@ public class Profile extends AppCompatActivity {
                                if (item.getItemId() == R.id.m_contact_doctor){
                                    Toast.makeText(Profile.this, "Calling Doctor...", Toast.LENGTH_SHORT).show();
                                    Intent intent = new Intent(Intent.ACTION_CALL);
-                                   intent.setData(Uri.parse("tel:" + "0000000000")); //<- not the actual doctors number but mine...
+                                   intent.setData(Uri.parse("tel:" + "0112635421")); //<- not the actual doctors number but mine...
                                    startActivity(intent);
                                }
                                if (item.getItemId() == R.id.m_edit){

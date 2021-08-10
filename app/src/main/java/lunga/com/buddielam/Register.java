@@ -135,6 +135,7 @@ public class Register extends AppCompatActivity {
                                 });
                             }else{
                                 Toast.makeText(Register.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                loadingBar.setVisibility(View.GONE);
                             }
                         }
                     });

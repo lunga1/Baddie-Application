@@ -31,13 +31,10 @@
             </intent-filter>
         </activity>
         
-        <receiver android:name=".backgroundProcess"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="BackgroundProcess"/>
-            </intent-filter>
-        </receiver>
+        <receiver
+            android:name=".ExecutableService"
+            android:enabled="true"/>
+
     </application>
 
 </manifest>
