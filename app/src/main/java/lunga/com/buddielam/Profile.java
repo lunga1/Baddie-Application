@@ -90,9 +90,7 @@ public class Profile extends AppCompatActivity {
         TextView set_reminder  = findViewById(R.id.set_med_reminder);
 
 
-        //alarm handler code goes here
-        AalarmHandler alarmManager = new AalarmHandler(this);
-
+        //set alarm on the calender...
         set_reminder.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ShortAlarm")
             @Override
